@@ -1,5 +1,10 @@
 # tasks file for hostname
 ---
+- name: make sure dbus is present
+  apt:
+    name: dbus
+    state: present
+
 - name: update the hostname - hostname module
   hostname:
     name: "{{ hostname_hostname if hostname_hostname_use_full else hostname_hostname_short }}"
