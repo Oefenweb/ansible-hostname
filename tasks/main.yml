@@ -49,7 +49,7 @@
   ansible.builtin.set_fact:
     ansible_domain: "{{ hostname_hostname.split('.', 1)[1] }}"
     ansible_fqdn: "{{ hostname_hostname }}"
-  when: ansible_fqdn != hostname_hostname
+  when: ansible_facts['fqdn'] != hostname_hostname
   tags:
     - configuration
     - hostname
